@@ -1,0 +1,28 @@
+services:
+  lib-service:
+    build: .
+    container_name: lib-service
+    ports:
+      - "8000:8000"
+    environment:
+      - STAND_SERVICE_URL=http://stand-service:8080
+      - USER_SERVICE_URL=http://user-service:8081
+      - HOST=0.0.0.0
+      - PORT=8000
+      - CORS_ORIGINS=*
+    networks:
+      - bookshop-network
+    volumes:
+      - .:/app
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/docs"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+
+networks:
+  bookshop-network:
+    name: bookshop-network
+    driver: bridge 
