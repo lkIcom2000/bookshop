@@ -1,0 +1,53 @@
+name: Multi-Repo CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  gradle-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Gradle Repo 1
+        uses: actions/checkout@v3
+        with:
+          repository: your-org/gradle-repo-1
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout Gradle Repo 2
+        uses: actions/checkout@v3
+        with:
+          repository: your-org/gradle-repo-2
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Build with Gradle
+        run: |
+          cd gradle-repo-1 && ./gradlew build
+          cd ../gradle-repo-2 && ./gradlew build
+
+  python-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Python Repo
+        uses: actions/checkout@v3
+        with:
+          repository: your-org/python-repo
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install -r python-repo/requirements.txt
+
+      - name: Run tests
+        run: pytest python-repo/tests/
