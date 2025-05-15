@@ -30,8 +30,14 @@ public class StandService {
     }
 
     public Stand updateStand(Long id, Stand stand) {
-        if (standRepository.existsById(id)) {
-            return standRepository.save(stand);
+        Optional<Stand> existingOpt = standRepository.findById(id);
+        if (existingOpt.isPresent()) {
+            Stand existing = existingOpt.get();
+            existing.setCustomerNumber(stand.getCustomerNumber());
+            existing.setSquareMetres(stand.getSquareMetres());
+            existing.setFair(stand.getFair());
+            existing.setLocation(stand.getLocation());
+            return standRepository.save(existing);
         }
         return null;
     }

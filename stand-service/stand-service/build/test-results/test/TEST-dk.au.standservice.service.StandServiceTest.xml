@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="dk.au.standservice.service.StandServiceTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2025-05-15T16:49:29" hostname="DESKTOP-V37J23L" time="0.297">
+<testsuite name="dk.au.standservice.service.StandServiceTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2025-05-15T17:00:41" hostname="DESKTOP-V37J23L" time="1.652">
   <properties/>
-  <testcase name="updateStand_WhenStandExists_ShouldReturnUpdatedStand()" classname="dk.au.standservice.service.StandServiceTest" time="0.269"/>
-  <testcase name="createStand_ShouldReturnCreatedStand()" classname="dk.au.standservice.service.StandServiceTest" time="0.002"/>
-  <testcase name="getStandById_WhenStandExists_ShouldReturnStand()" classname="dk.au.standservice.service.StandServiceTest" time="0.003"/>
-  <testcase name="getAllStands_ShouldReturnListOfStands()" classname="dk.au.standservice.service.StandServiceTest" time="0.01"/>
+  <testcase name="updateStand_WhenStandExists_ShouldReturnUpdatedStand()" classname="dk.au.standservice.service.StandServiceTest" time="1.61"/>
+  <testcase name="createStand_ShouldReturnCreatedStand()" classname="dk.au.standservice.service.StandServiceTest" time="0.004"/>
+  <testcase name="getStandById_WhenStandExists_ShouldReturnStand()" classname="dk.au.standservice.service.StandServiceTest" time="0.005"/>
+  <testcase name="getAllStands_ShouldReturnListOfStands()" classname="dk.au.standservice.service.StandServiceTest" time="0.014"/>
   <testcase name="getStandById_WhenStandDoesNotExist_ShouldReturnEmpty()" classname="dk.au.standservice.service.StandServiceTest" time="0.003"/>
-  <testcase name="deleteStand_ShouldCallRepository()" classname="dk.au.standservice.service.StandServiceTest" time="0.002"/>
-  <testcase name="updateStand_WhenStandDoesNotExist_ShouldReturnNull()" classname="dk.au.standservice.service.StandServiceTest" time="0.003"/>
+  <testcase name="deleteStand_ShouldCallRepository()" classname="dk.au.standservice.service.StandServiceTest" time="0.003"/>
+  <testcase name="updateStand_WhenStandDoesNotExist_ShouldReturnNull()" classname="dk.au.standservice.service.StandServiceTest" time="0.004"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

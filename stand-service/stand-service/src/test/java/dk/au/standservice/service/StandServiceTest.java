@@ -85,25 +85,25 @@ class StandServiceTest {
 
     @Test
     void updateStand_WhenStandExists_ShouldReturnUpdatedStand() {
-        when(standRepository.existsById(1L)).thenReturn(true);
+        when(standRepository.findById(1L)).thenReturn(Optional.of(testStand));
         when(standRepository.save(any(Stand.class))).thenReturn(testStand);
 
         Stand updated = standService.updateStand(1L, testStand);
 
         assertThat(updated.getId()).isEqualTo(testStand.getId());
         assertThat(updated.getCustomerNumber()).isEqualTo(testStand.getCustomerNumber());
-        verify(standRepository).existsById(1L);
-        verify(standRepository).save(testStand);
+        verify(standRepository).findById(1L);
+        verify(standRepository).save(any(Stand.class));
     }
 
     @Test
     void updateStand_WhenStandDoesNotExist_ShouldReturnNull() {
-        when(standRepository.existsById(1L)).thenReturn(false);
+        when(standRepository.findById(1L)).thenReturn(Optional.empty());
 
         Stand updated = standService.updateStand(1L, testStand);
 
         assertThat(updated).isNull();
-        verify(standRepository).existsById(1L);
+        verify(standRepository).findById(1L);
         verify(standRepository, never()).save(any());
     }
 

@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.494s</div>
+<div class="counter">0.470s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,42 +79,42 @@
 </thead>
 <tr>
 <td class="success">createStand_ShouldReturnCreatedStand()</td>
-<td class="success">0.096s</td>
+<td class="success">0.116s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">deleteStand_ShouldReturn200()</td>
-<td class="success">0.013s</td>
+<td class="success">0.007s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getAllStands_ShouldReturnListOfStands()</td>
-<td class="success">0.013s</td>
+<td class="success">0.012s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getStandById_WhenStandDoesNotExist_ShouldReturn404()</td>
-<td class="success">0.005s</td>
+<td class="success">0.006s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getStandById_WhenStandExists_ShouldReturnStand()</td>
-<td class="success">0.006s</td>
+<td class="success">0.007s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testEndpoint()</td>
-<td class="success">0.159s</td>
+<td class="success">0.121s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">updateStand_WhenStandDoesNotExist_ShouldReturn404()</td>
-<td class="success">0.006s</td>
+<td class="success">0.007s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">updateStand_WhenStandExists_ShouldReturnUpdatedStand()</td>
-<td class="success">0.196s</td>
+<td class="success">0.194s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -122,8 +122,8 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>18:49:25.423 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [dk.au.standservice.controller.StandControllerTest]: StandControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-18:49:25.660 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration dk.au.standservice.StandServiceApplication for test class dk.au.standservice.controller.StandControllerTest
+<pre>19:00:43.779 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [dk.au.standservice.controller.StandControllerTest]: StandControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:00:44.082 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration dk.au.standservice.StandServiceApplication for test class dk.au.standservice.controller.StandControllerTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -133,16 +133,16 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.3)
 
-2025-05-15T18:49:26.175+02:00  INFO 7344 --- [    Test worker] d.a.s.controller.StandControllerTest     : Starting StandControllerTest using Java 17.0.2 with PID 7344 (started by commc in C:\Users\commc\Documents\Git\bookshop\stand-service\stand-service)
-2025-05-15T18:49:26.176+02:00 DEBUG 7344 --- [    Test worker] d.a.s.controller.StandControllerTest     : Running with Spring Boot v3.2.3, Spring v6.1.4
-2025-05-15T18:49:26.177+02:00  INFO 7344 --- [    Test worker] d.a.s.controller.StandControllerTest     : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2025-05-15T18:49:28.687+02:00  INFO 7344 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2025-05-15T18:49:28.687+02:00  INFO 7344 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2025-05-15T18:49:28.691+02:00  INFO 7344 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
-2025-05-15T18:49:28.745+02:00  INFO 7344 --- [    Test worker] d.a.s.controller.StandControllerTest     : Started StandControllerTest in 2.978 seconds (process running for 4.743)
-2025-05-15T18:49:29.217+02:00  INFO 7344 --- [    Test worker] d.a.s.controller.StandController         : Received stand creation request - Raw object: Stand{id=1, customerNumber='CUST001', squareMetres=25.5, fair='Book Fair 2024', location='Hall A, Section 3'}
-2025-05-15T18:49:29.224+02:00  INFO 7344 --- [    Test worker] d.a.s.controller.StandController         : All validation passed, creating stand with values - customerNumber: 'CUST001', squareMetres: 25.5, fair: 'Book Fair 2024', location: 'Hall A, Section 3'
-2025-05-15T18:49:29.225+02:00  INFO 7344 --- [    Test worker] d.a.s.controller.StandController         : Successfully created stand: Stand{id=1, customerNumber='CUST001', squareMetres=25.5, fair='Book Fair 2024', location='Hall A, Section 3'}
+2025-05-15T19:00:44.668+02:00  INFO 16828 --- [    Test worker] d.a.s.controller.StandControllerTest     : Starting StandControllerTest using Java 17.0.2 with PID 16828 (started by commc in C:\Users\commc\Documents\Git\bookshop\stand-service\stand-service)
+2025-05-15T19:00:44.669+02:00 DEBUG 16828 --- [    Test worker] d.a.s.controller.StandControllerTest     : Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-05-15T19:00:44.670+02:00  INFO 16828 --- [    Test worker] d.a.s.controller.StandControllerTest     : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2025-05-15T19:00:46.273+02:00  INFO 16828 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-05-15T19:00:46.274+02:00  INFO 16828 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-05-15T19:00:46.279+02:00  INFO 16828 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2025-05-15T19:00:46.320+02:00  INFO 16828 --- [    Test worker] d.a.s.controller.StandControllerTest     : Started StandControllerTest in 2.126 seconds (process running for 5.485)
+2025-05-15T19:00:46.760+02:00  INFO 16828 --- [    Test worker] d.a.s.controller.StandController         : Received stand creation request - Raw object: Stand{id=1, customerNumber='CUST001', squareMetres=25.5, fair='Book Fair 2024', location='Hall A, Section 3'}
+2025-05-15T19:00:46.767+02:00  INFO 16828 --- [    Test worker] d.a.s.controller.StandController         : All validation passed, creating stand with values - customerNumber: 'CUST001', squareMetres: 25.5, fair: 'Book Fair 2024', location: 'Hall A, Section 3'
+2025-05-15T19:00:46.768+02:00  INFO 16828 --- [    Test worker] d.a.s.controller.StandController         : Successfully created stand: Stand{id=1, customerNumber='CUST001', squareMetres=25.5, fair='Book Fair 2024', location='Hall A, Section 3'}
 </pre>
 </span>
 </div>
@@ -154,7 +154,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.12</a> at 15.05.2025, 18:49:29</p>
+<a href="http://www.gradle.org">Gradle 8.12</a> at 15.05.2025, 19:00:46</p>
 </div>
 </div>
 </body>
