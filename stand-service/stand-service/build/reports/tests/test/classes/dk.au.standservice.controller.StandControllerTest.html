@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - StandControllerTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>StandControllerTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/dk.au.standservice.controller.html">dk.au.standservice.controller</a> &gt; StandControllerTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">8</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.494s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">createStand_ShouldReturnCreatedStand()</td>
+<td class="success">0.096s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">deleteStand_ShouldReturn200()</td>
+<td class="success">0.013s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getAllStands_ShouldReturnListOfStands()</td>
+<td class="success">0.013s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getStandById_WhenStandDoesNotExist_ShouldReturn404()</td>
+<td class="success">0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getStandById_WhenStandExists_ShouldReturnStand()</td>
+<td class="success">0.006s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testEndpoint()</td>
+<td class="success">0.159s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">updateStand_WhenStandDoesNotExist_ShouldReturn404()</td>
+<td class="success">0.006s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">updateStand_WhenStandExists_ShouldReturnUpdatedStand()</td>
+<td class="success">0.196s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>18:49:25.423 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [dk.au.standservice.controller.StandControllerTest]: StandControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+18:49:25.660 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration dk.au.standservice.StandServiceApplication for test class dk.au.standservice.controller.StandControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.3)
+
+2025-05-15T18:49:26.175+02:00  INFO 7344 --- [    Test worker] d.a.s.controller.StandControllerTest     : Starting StandControllerTest using Java 17.0.2 with PID 7344 (started by commc in C:\Users\commc\Documents\Git\bookshop\stand-service\stand-service)
+2025-05-15T18:49:26.176+02:00 DEBUG 7344 --- [    Test worker] d.a.s.controller.StandControllerTest     : Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-05-15T18:49:26.177+02:00  INFO 7344 --- [    Test worker] d.a.s.controller.StandControllerTest     : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2025-05-15T18:49:28.687+02:00  INFO 7344 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-05-15T18:49:28.687+02:00  INFO 7344 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-05-15T18:49:28.691+02:00  INFO 7344 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2025-05-15T18:49:28.745+02:00  INFO 7344 --- [    Test worker] d.a.s.controller.StandControllerTest     : Started StandControllerTest in 2.978 seconds (process running for 4.743)
+2025-05-15T18:49:29.217+02:00  INFO 7344 --- [    Test worker] d.a.s.controller.StandController         : Received stand creation request - Raw object: Stand{id=1, customerNumber='CUST001', squareMetres=25.5, fair='Book Fair 2024', location='Hall A, Section 3'}
+2025-05-15T18:49:29.224+02:00  INFO 7344 --- [    Test worker] d.a.s.controller.StandController         : All validation passed, creating stand with values - customerNumber: 'CUST001', squareMetres: 25.5, fair: 'Book Fair 2024', location: 'Hall A, Section 3'
+2025-05-15T18:49:29.225+02:00  INFO 7344 --- [    Test worker] d.a.s.controller.StandController         : Successfully created stand: Stand{id=1, customerNumber='CUST001', squareMetres=25.5, fair='Book Fair 2024', location='Hall A, Section 3'}
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.12</a> at 15.05.2025, 18:49:29</p>
+</div>
+</div>
+</body>
+</html>

@@ -11,6 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import java.util.HashMap;
+import java.util.Map;
 
 import java.util.List;
 
@@ -18,6 +25,7 @@ import java.util.List;
 @RequestMapping("/stands")
 @Tag(name = "Stand Controller", description = "API for managing stands")
 public class StandController {
+    private static final Logger logger = LoggerFactory.getLogger(StandController.class);
     private final StandService standService;
 
     @Autowired
@@ -52,27 +60,57 @@ public class StandController {
 
     @PostMapping
     @Operation(summary = "Create a new stand", description = "Creates a new stand with the provided details")
-    @ApiResponse(responseCode = "200", description = "Successfully created the stand")
-    public Stand createStand(
-            @io.swagger.v3.oas.annotations.parameters.RequestBody(
-                description = "Stand object to create",
-                required = true,
-                content = @io.swagger.v3.oas.annotations.media.Content(
-                    schema = @Schema(implementation = Stand.class),
-                    examples = @io.swagger.v3.oas.annotations.media.ExampleObject(
-                        value = """
-                        {
-                          "customerNumber": "CUST001",
-                          "squareMetres": 25.5,
-                          "fair": "Book Fair 2024",
-                          "location": "Hall A, Section 3"
-                        }
-                        """
-                    )
-                )
-            )
-            @RequestBody Stand stand) {
-        return standService.createStand(stand);
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Successfully created the stand"),
+        @ApiResponse(responseCode = "400", description = "Invalid input data")
+    })
+    public ResponseEntity<?> createStand(
+            @Valid @RequestBody Stand stand,
+            BindingResult bindingResult) {
+        try {
+            logger.info("Received stand creation request - Raw object: {}", stand);
+
+            // Check for validation errors
+            if (bindingResult.hasErrors()) {
+                Map<String, String> errors = new HashMap<>();
+                for (FieldError error : bindingResult.getFieldErrors()) {
+                    errors.put(error.getField(), error.getDefaultMessage());
+                }
+                logger.error("Validation errors: {}", errors);
+                return ResponseEntity.badRequest().body(errors);
+            }
+
+            // Additional validation
+            if (stand.getCustomerNumber() == null || stand.getCustomerNumber().trim().isEmpty()) {
+                logger.error("Customer number is null or empty");
+                return ResponseEntity.badRequest().body(Map.of("customerNumber", "Customer number is required"));
+            }
+            if (stand.getSquareMetres() == null || stand.getSquareMetres() <= 0) {
+                logger.error("Square metres is invalid: {}", stand.getSquareMetres());
+                return ResponseEntity.badRequest().body(Map.of("squareMetres", "Square metres must be greater than 0"));
+            }
+            if (stand.getFair() == null || stand.getFair().trim().isEmpty()) {
+                logger.error("Fair is null or empty");
+                return ResponseEntity.badRequest().body(Map.of("fair", "Fair is required"));
+            }
+            if (stand.getLocation() == null || stand.getLocation().trim().isEmpty()) {
+                logger.error("Location is null or empty");
+                return ResponseEntity.badRequest().body(Map.of("location", "Location is required"));
+            }
+
+            logger.info("All validation passed, creating stand with values - customerNumber: '{}', squareMetres: {}, fair: '{}', location: '{}'",
+                stand.getCustomerNumber(),
+                stand.getSquareMetres(),
+                stand.getFair(),
+                stand.getLocation());
+
+            Stand createdStand = standService.createStand(stand);
+            logger.info("Successfully created stand: {}", createdStand);
+            return ResponseEntity.ok(createdStand);
+        } catch (Exception e) {
+            logger.error("Error creating stand: {}", e.getMessage(), e);
+            return ResponseEntity.badRequest().body(Map.of("error", "Error creating stand: " + e.getMessage()));
+        }
     }
 
     @PutMapping("/{id}")

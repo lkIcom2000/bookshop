@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dk.au.standservice.controller.StandControllerTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2025-05-15T16:49:28" hostname="DESKTOP-V37J23L" time="0.507">
+  <properties/>
+  <testcase name="testEndpoint()" classname="dk.au.standservice.controller.StandControllerTest" time="0.159"/>
+  <testcase name="updateStand_WhenStandExists_ShouldReturnUpdatedStand()" classname="dk.au.standservice.controller.StandControllerTest" time="0.196"/>
+  <testcase name="createStand_ShouldReturnCreatedStand()" classname="dk.au.standservice.controller.StandControllerTest" time="0.096"/>
+  <testcase name="getStandById_WhenStandDoesNotExist_ShouldReturn404()" classname="dk.au.standservice.controller.StandControllerTest" time="0.005"/>
+  <testcase name="updateStand_WhenStandDoesNotExist_ShouldReturn404()" classname="dk.au.standservice.controller.StandControllerTest" time="0.006"/>
+  <testcase name="deleteStand_ShouldReturn200()" classname="dk.au.standservice.controller.StandControllerTest" time="0.013"/>
+  <testcase name="getStandById_WhenStandExists_ShouldReturnStand()" classname="dk.au.standservice.controller.StandControllerTest" time="0.006"/>
+  <testcase name="getAllStands_ShouldReturnListOfStands()" classname="dk.au.standservice.controller.StandControllerTest" time="0.013"/>
+  <system-out><![CDATA[18:49:25.423 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [dk.au.standservice.controller.StandControllerTest]: StandControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+18:49:25.660 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration dk.au.standservice.StandServiceApplication for test class dk.au.standservice.controller.StandControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.3)
+
+2025-05-15T18:49:26.175+02:00  INFO 7344 --- [    Test worker] d.a.s.controller.StandControllerTest     : Starting StandControllerTest using Java 17.0.2 with PID 7344 (started by commc in C:\Users\commc\Documents\Git\bookshop\stand-service\stand-service)
+2025-05-15T18:49:26.176+02:00 DEBUG 7344 --- [    Test worker] d.a.s.controller.StandControllerTest     : Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-05-15T18:49:26.177+02:00  INFO 7344 --- [    Test worker] d.a.s.controller.StandControllerTest     : No active profile set, falling back to 1 default profile: "default"
+2025-05-15T18:49:28.687+02:00  INFO 7344 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-05-15T18:49:28.687+02:00  INFO 7344 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-05-15T18:49:28.691+02:00  INFO 7344 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2025-05-15T18:49:28.745+02:00  INFO 7344 --- [    Test worker] d.a.s.controller.StandControllerTest     : Started StandControllerTest in 2.978 seconds (process running for 4.743)
+2025-05-15T18:49:29.217+02:00  INFO 7344 --- [    Test worker] d.a.s.controller.StandController         : Received stand creation request - Raw object: Stand{id=1, customerNumber='CUST001', squareMetres=25.5, fair='Book Fair 2024', location='Hall A, Section 3'}
+2025-05-15T18:49:29.224+02:00  INFO 7344 --- [    Test worker] d.a.s.controller.StandController         : All validation passed, creating stand with values - customerNumber: 'CUST001', squareMetres: 25.5, fair: 'Book Fair 2024', location: 'Hall A, Section 3'
+2025-05-15T18:49:29.225+02:00  INFO 7344 --- [    Test worker] d.a.s.controller.StandController         : Successfully created stand: Stand{id=1, customerNumber='CUST001', squareMetres=25.5, fair='Book Fair 2024', location='Hall A, Section 3'}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
