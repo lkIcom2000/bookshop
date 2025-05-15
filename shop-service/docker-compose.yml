@@ -6,7 +6,7 @@ services:
       - "8000:8000"
     environment:
       - STAND_SERVICE_URL=http://stand-service:8080
-      - USER_SERVICE_URL=http://user-service:8081
+      - USER_SERVICE_URL=http://user-service:8080
       - HOST=0.0.0.0
       - PORT=8000
       - CORS_ORIGINS=*

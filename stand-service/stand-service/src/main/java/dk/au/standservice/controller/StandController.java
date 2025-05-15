@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.List;
 
@@ -52,7 +53,25 @@ public class StandController {
     @PostMapping
     @Operation(summary = "Create a new stand", description = "Creates a new stand with the provided details")
     @ApiResponse(responseCode = "200", description = "Successfully created the stand")
-    public Stand createStand(@Parameter(description = "Stand object to create") @RequestBody Stand stand) {
+    public Stand createStand(
+            @io.swagger.v3.oas.annotations.parameters.RequestBody(
+                description = "Stand object to create",
+                required = true,
+                content = @io.swagger.v3.oas.annotations.media.Content(
+                    schema = @Schema(implementation = Stand.class),
+                    examples = @io.swagger.v3.oas.annotations.media.ExampleObject(
+                        value = """
+                        {
+                          "customerNumber": "CUST001",
+                          "squareMetres": 25.5,
+                          "fair": "Book Fair 2024",
+                          "location": "Hall A, Section 3"
+                        }
+                        """
+                    )
+                )
+            )
+            @RequestBody Stand stand) {
         return standService.createStand(stand);
     }
 
@@ -64,7 +83,24 @@ public class StandController {
     })
     public ResponseEntity<Stand> updateStand(
             @Parameter(description = "ID of the stand to update") @PathVariable Long id,
-            @Parameter(description = "Updated stand object") @RequestBody Stand stand) {
+            @io.swagger.v3.oas.annotations.parameters.RequestBody(
+                description = "Updated stand object",
+                required = true,
+                content = @io.swagger.v3.oas.annotations.media.Content(
+                    schema = @Schema(implementation = Stand.class),
+                    examples = @io.swagger.v3.oas.annotations.media.ExampleObject(
+                        value = """
+                        {
+                          "customerNumber": "CUST001",
+                          "squareMetres": 25.5,
+                          "fair": "Book Fair 2024",
+                          "location": "Hall A, Section 3"
+                        }
+                        """
+                    )
+                )
+            )
+            @RequestBody Stand stand) {
         Stand updatedStand = standService.updateStand(id, stand);
         return updatedStand != null ? ResponseEntity.ok(updatedStand) : ResponseEntity.notFound().build();
     }

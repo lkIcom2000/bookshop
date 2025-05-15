@@ -1,16 +1,41 @@
 package dk.au.userservice.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.sql.Date;
 
-public class UserDTO{
-  private String name;
-  private Date birth;
-  private String role;
-  private String adress;
-  private int phoneNumber;
-  private String payment;
+@Schema(description = "Data Transfer Object for User information")
+public class UserDTO {
+    @Schema(description = "ID of the user")
+    private Long id;
 
-    public UserDTO(String name, Date birth, String role, String adress, int phoneNumber, String payment) {
+    @Schema(description = "Name of the user", example = "Max Mustermann")
+    private String name;
+
+    @Schema(description = "Birth date of the user", example = "2025-05-15")
+    private Date birth;
+
+    @Schema(
+        description = "Role of the user (case-sensitive)",
+        example = "USER",
+        allowableValues = {"ADMIN", "USER", "GUEST"}
+    )
+    private String role;
+
+    @Schema(description = "Address of the user", example = "Birk Centerpark 120")
+    private String adress;
+
+    @Schema(description = "Phone number of the user", example = "1234567")
+    private int phoneNumber;
+
+    @Schema(
+        description = "Preferred payment method (case-sensitive)",
+        example = "PAYPAL",
+        allowableValues = {"PAYPAL", "SMSPAY", "CREDITCARD"}
+    )
+    private String payment;
+
+    public UserDTO(Long id, String name, Date birth, String role, String adress, int phoneNumber, String payment) {
+        this.id = id;
         this.name = name;
         this.birth = birth;
         this.role = role;
@@ -22,13 +47,22 @@ public class UserDTO{
     @java.lang.Override
     public java.lang.String toString() {
         return "UserDTO{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", birth=" + birth +
                 ", role='" + role + '\'' +
                 ", adress='" + adress + '\'' +
                 ", phoneNumber=" + phoneNumber +
                 ", payment='" + payment + '\'' +
                 '}';
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

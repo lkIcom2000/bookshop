@@ -1,6 +1,7 @@
 services:
   app:
-    image: stand-image
+    build: .
+    container_name: stand-service
     ports:
       - "8080:8080"
     environment:

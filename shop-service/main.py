@@ -24,14 +24,27 @@ app.add_middleware(
 # Models
 class Stand(BaseModel):
     id: Optional[int] = None
-    name: str
-    description: str
-    price: float
+    customerNumber: str
+    squareMetres: float
+    fair: str
+    location: str
 
-class UserDTO(BaseModel):
-    id: Optional[int] = None
-    username: str
-    email: str
+class UserCreateDTO(BaseModel):
+    name: str
+    birth: str
+    role: str
+    adress: str
+    phoneNumber: int
+    payment: str
+
+class UserResponseDTO(BaseModel):
+    id: int
+    name: str
+    birth: str
+    role: str
+    adress: str
+    phoneNumber: int
+    payment: str
 
 # Stand Service Endpoints
 @app.get("/api/stands", response_model=List[Stand])
@@ -81,7 +94,7 @@ async def delete_stand(stand_id: int):
         return {"message": "Stand deleted successfully"}
 
 # User Service Endpoints
-@app.get("/api/users/{user_id}", response_model=UserDTO)
+@app.get("/api/users/{user_id}", response_model=UserResponseDTO)
 async def get_user_by_id(user_id: int):
     async with httpx.AsyncClient() as client:
         response = await client.get(f"{settings.USER_SERVICE_URL}/users/{user_id}")
@@ -91,10 +104,10 @@ async def get_user_by_id(user_id: int):
             raise HTTPException(status_code=response.status_code, detail="Failed to fetch user")
         return response.json()
 
-@app.post("/api/users", response_model=UserDTO)
-async def create_user(user: UserDTO):
+@app.post("/api/users", response_model=UserResponseDTO)
+async def create_user(user: UserCreateDTO):
     async with httpx.AsyncClient() as client:
-        response = await client.post(f"{settings.USER_SERVICE_URL}/users", json=user.dict(exclude={'id'}))
+        response = await client.post(f"{settings.USER_SERVICE_URL}/users", json=user.dict())
         if response.status_code != 200:
             raise HTTPException(status_code=response.status_code, detail="Failed to create user")
         return response.json()
